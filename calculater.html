@@ -1,0 +1,117 @@
+<center>
+<script type='text/javascript' src='http://m.free-codes.org/g.php?id=2002'></script><head>
+<script language="JavaScript">
+function addChar(input, character) {
+if(input.value== null || input.value== "0")
+input.value= character
+else
+input.value += character
+}
+function cos(form) {
+form.display.value= Math.cos(form.display.value);
+}
+function sin(form) {
+form.display.value= Math.sin(form.display.value);
+}
+function tan(form) {
+form.display.value= Math.tan(form.display.value);
+}
+function sqrt(form) {
+form.display.value= Math.sqrt(form.display.value);
+}
+function ln(form) {
+form.display.value= Math.log(form.display.value);
+}
+function exp(form) {
+form.display.value= Math.exp(form.display.value);
+}
+function deleteChar(input) {
+input.value= input.value.substring(0, input.value.length - 1)
+}
+function changeSign(input) {
+if(input.value.substring(0, 1) == "-")
+input.value= input.value.substring(1, input.value.length)
+else
+input.value= "-" + input.value
+}
+function compute(form) {
+form.display.value= eval(form.display.value)
+}
+function square(form) {
+form.display.value= eval(form.display.value) * eval(form.display.value)
+}
+function checkNum(str) {
+for (var i = 0; i < str.length; i++) {
+var ch = str.substring(i, i+1)
+if (ch < "0" || ch > "9") {
+if (ch != "/" && ch != "*" && ch != "+" && ch != "-" && ch != "."
+&& ch != "(" && ch!= ")") {
+alert("invalid entry!")
+return false
+}
+}
+}
+return true
+}
+</SCRIPT>
+<style type="text/css">
+form#calculator,table#calculator td{
+margin:0; padding:0
+}
+input.cal{width:50px !important; text-align:center; border:1px outset #bbb; background:#f5f5f5; height:23px; margin-top:1px}
+input.back{width:154px !important; text-align:center; border:1px outset #bbb; background:#f5f5f5; height:23px; margin-top:1px}
+input.view{width:246px !important; background:#ffd; border:1px inset #999; height:21px; padding:2px 5px; font:normal 12px verdana }
+</style>
+</head>
+
+<body>
+<form name="sci-calc">
+<table border="0" cellpadding="0" cellspacing="0" id="calculator">
+<tr>
+<td colspan="5" align="center"><INPUT name="display" value="0" MAXLENGTH="25" class="view"></td>
+</tr>
+<tr>
+<td align="center"><input type="button" class="cal" value=" exp " onClick="if (checkNum(this.form.display.value)) { exp(this.form) }"></td>
+<td align="center"><input type="button" class="cal" value=" 7 " onClick="addChar(this.form.display, '7')"></td>
+<td align="center"><input type="button" class="cal" value=" 8 " onClick="addChar(this.form.display, '8')"></td>
+<td align="center"><input type="button" class="cal" value=" 9 " onClick="addChar(this.form.display, '9')"></td>
+<td align="center"><input type="button" class="cal" value=" / " onClick="addChar(this.form.display, '/')"></td>
+</tr>
+<tr>
+<td align="center"><input type="button" class="cal" value=" ln " onClick="if (checkNum(this.form.display.value)) { ln(this.form) }"></td>
+<td align="center"><input type="button" class="cal" value=" 4 " onClick="addChar(this.form.display, '4')"></td>
+<td align="center"><input type="button" class="cal" value=" 5 " onClick="addChar(this.form.display, '5')"></td>
+<td align="center"><input type="button" class="cal" value=" 6 " onClick="addChar(this.form.display, '6')"></td>
+<td align="center"><input type="button" class="cal" value=" * " onClick="addChar(this.form.display, '*')"></td>
+</tr>
+<tr>
+<td align="center"><input type="button" class="cal" value=" sqrt " onClick="if (checkNum(this.form.display.value)) { sqrt(this.form) }"></td>
+<td align="center"><input type="button" class="cal" value=" 1 " onClick="addChar(this.form.display, '1')"></td>
+<td align="center"><input type="button" class="cal" value=" 2 " onClick="addChar(this.form.display, '2')"></td>
+<td align="center"><input type="button" class="cal" value=" 3 " onClick="addChar(this.form.display, '3')"></td>
+<td align="center"><input name="button" type="button" class="cal" onClick="addChar(this.form.display, '-')" value=" - "></td>
+</tr>
+<tr>
+<td align="center"><input type="button" class="cal" value=" sq " onClick="if (checkNum(this.form.display.value)) { square(this.form) }"></td>
+<td align="center"><input type="button" class="cal" value=" 0 " onClick="addChar(this.form.display, '0')"></td>
+<td align="center"><input type="button" class="cal" value=" . " onClick="addChar(this.form.display, '.')"></td>
+<td align="center"><input type="button" class="cal" value=" +/- " onClick="changeSign(this.form.display)"></td>
+<td align="center"><input type="button" class="cal" value=" + " onClick="addChar(this.form.display, '+')"></td>
+</tr>
+<tr>
+<td align="center"><input type="button" class="cal" value=" ( " onClick="addChar(this.form.display, '(')"></td>
+<td align="center"><input type="button" class="cal" value="cos" onClick="if (checkNum(this.form.display.value)) { cos(this.form) }"></td>
+<td align="center"><input type="button" class="cal" value=" sin" onClick="if (checkNum(this.form.display.value)) { sin(this.form) }"></td>
+<td align="center"><input type="button" class="cal" value=" tan" onClick="if (checkNum(this.form.display.value)) { tan(this.form) }"></td>
+<td align="center"><input type="button" class="cal" value=" ) " onClick="addChar(this.form.display, ')')"></td>
+</tr>
+<tr>
+<td align="center"><input type="button" class="cal" value="clear" onClick="this.form.display.value= 0 "></td>
+<td align="center" colspan="3"><input type="button" class="back" value="backspace" onClick="deleteChar(this.form.display)"></td>
+<td align="center"><input type="button" class="cal" value="=" name="enter" onClick="if (checkNum(this.form.display.value)) { compute(this.form) }"></td>
+</tr>
+</table>
+</form>
+</body>
+<a target="_blank" href="https://hardik.live" style="text-decoration:none;bottom:0;left:10px;font-size:5pt;color:gray;position:absolute">free web tools</a><a target="_blank" href="https://www.hardik.live" style="font-size: 8pt; text-decoration: none">Made By Hardik</a>
+</center>
